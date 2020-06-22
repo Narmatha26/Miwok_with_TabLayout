@@ -3,19 +3,42 @@ package com.example.miwok;
 public class Word {
     private String mMiwokTranslation;
     private String mDefaultTranslation;
+    private int mImageResourceId = NO_IMAGE_PROVIDED;
+    private static final int NO_IMAGE_PROVIDED = -1;
+    private int mAudioResourceId;
 
-    public Word(String miwokTranslation, String defaultTranslation)
-    {
+    public Word(String miwokTranslation, String defaultTranslation, int audioResourceId) {
         mMiwokTranslation = miwokTranslation;
         mDefaultTranslation = defaultTranslation;
+        mAudioResourceId = audioResourceId;
+
     }
 
-    public String getMiwokTranslation(){
-        return mMiwokTranslation ;
+    public Word(String miwokTranslation, String defaultTranslation, int imageResourceId, int audioResourceId) {
+        mMiwokTranslation = miwokTranslation;
+        mDefaultTranslation = defaultTranslation;
+        mImageResourceId = imageResourceId;
+        mAudioResourceId = audioResourceId;
     }
 
-    public String getDefaultTranslation(){
+    public String getMiwokTranslation() {
+        return mMiwokTranslation;
+    }
+
+    public String getDefaultTranslation() {
         return mDefaultTranslation;
+    }
+
+    public int getImageResourceId() {
+        return mImageResourceId;
+    }
+
+    public boolean hasImage() {
+        return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
+
+    public int getAudioResourceId() {
+        return mAudioResourceId;
     }
 
 }
